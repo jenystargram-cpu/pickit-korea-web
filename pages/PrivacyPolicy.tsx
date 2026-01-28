@@ -58,7 +58,7 @@ const PrivacyPolicy: React.FC = () => {
               <p>▶ 개인정보 보호책임자</p>
               <p>성명 : 관리자</p>
               <p>직급 : 대표이사</p>
-              <p>연락처 : info@pickit-korea.com</p>
+              <p>연락처 : info@pickitkorea.com</p>
             </div>
           </div>
           

@@ -48,7 +48,7 @@ const Careers: React.FC = () => {
             </div>
             
             <a 
-              href="mailto:recruit@pickit-korea.com" 
+              href="mailto:recruit@pickitkorea.com" 
               className="group flex items-center px-10 py-5 bg-black text-white hover:bg-neutral-800 transition-all duration-300"
             >
               <span className="font-bold mr-4">지원하기</span>
