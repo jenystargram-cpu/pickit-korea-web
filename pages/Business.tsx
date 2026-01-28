@@ -28,7 +28,7 @@ const Business: React.FC = () => {
         'Premium Goods',
         'Precision Processing'
       ],
-      link: 'https://www.pickitkorea.com',
+      link: 'https://pickit-korea.com',
       imageGradient: 'from-blue-600/20 to-black',
       accentColor: 'text-blue-400',
       glowColor: 'shadow-blue-900/50'
