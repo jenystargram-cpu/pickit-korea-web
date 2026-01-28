@@ -149,7 +149,6 @@ const Navbar: React.FC = () => {
             </button>
           </div>
 
-          {/* Spacer for Flex centering balance (Desktop only) if needed, or Absolute layout handles it */}
           {/* Mobile Menu Button */}
           <button 
             className="md:hidden text-white z-50"
@@ -162,7 +161,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       <div className={`fixed inset-0 bg-black z-40 transition-transform duration-500 ease-in-out md:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-         <div className="flex flex-col h-full justify-center px-8 space-y-8 overflow-y-auto no-scrollbar py-20">
+         <div className="flex flex-col h-full justify-start px-8 space-y-8 overflow-y-auto no-scrollbar pt-32 pb-20">
             <div>
               <p className="text-gray-600 text-[10px] font-bold tracking-[0.2em] uppercase mb-4 pl-1">About Company</p>
               <button onClick={() => handleNavClick('/about', 'greeting')} className="block text-3xl font-bold text-white mb-3 hover:text-gray-300 text-left">인사말</button>

@@ -6,13 +6,12 @@ const SplineBackground: React.FC = () => {
   const isHome = location.pathname === '/';
 
   return (
-    <div className="fixed inset-0 w-full h-full z-0 overflow-hidden pointer-events-none bg-black">
+    <div className="fixed inset-0 w-full h-full z-0 overflow-hidden bg-black">
       {/* 
         Mobile Optimization:
-        Set width to 180% on mobile and center it using left-1/2 and -translate-x-1/2.
-        This forces the 3D camera to render a wider horizontal Field of View (FOV),
-        preventing the sides of the object from being cut off in portrait mode.
-        On desktop (md:), we reset to 100% width.
+        Width set to 180% on mobile to increase horizontal FOV and prevent cropping.
+        Centered using left-1/2 and -translate-x-1/2.
+        Reset to 100% on desktop.
       */}
       <div className="absolute top-0 h-full w-[180%] left-1/2 -translate-x-1/2 md:w-full md:left-0 md:translate-x-0 transition-all duration-300">
         <iframe 
@@ -25,9 +24,13 @@ const SplineBackground: React.FC = () => {
         />
       </div>
       
-      {/* Overlay: Transparent on Home, Dark on other pages for readability */}
+      {/* 
+        Overlay: 
+        pointer-events-none is applied here to ensure clicks pass through to the iframe on the Home page.
+        On other pages, the dark background helps readability.
+      */}
       <div 
-        className={`absolute inset-0 transition-all duration-700 ${
+        className={`absolute inset-0 transition-all duration-700 pointer-events-none ${
           isHome 
             ? 'bg-transparent' 
             : 'bg-black/90 backdrop-blur-sm'
