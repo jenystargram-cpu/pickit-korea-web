@@ -17,13 +17,13 @@ const Partners: React.FC = () => {
         
         {/* Header Section */}
         <div className="mb-16 md:mb-24 text-center animate-fade-in-up">
-           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
+           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/5 border border-white/10 mb-8 backdrop-blur-sm shadow-[0_0_20px_rgba(255,255,255,0.05)]">
             <Handshake className="w-8 h-8 text-white" />
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-none mb-6 tracking-tighter">
             BUSINESS<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
               PARTNER
             </span>
           </h1>
@@ -42,11 +42,11 @@ const Partners: React.FC = () => {
                 key={t}
                 onClick={() => setActiveTab(t)}
                 className={`pb-4 text-sm md:text-base font-bold tracking-widest uppercase transition-all relative ${
-                  activeTab === t ? 'text-white' : 'text-gray-600 hover:text-gray-400'
+                  activeTab === t ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]' : 'text-gray-600 hover:text-gray-400'
                 }`}
               >
                 {t === 'inquiry' ? 'B2B 제휴문의' : 'Partnership'}
-                <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-white transition-transform duration-300 ${
+                <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-white to-gray-500 transition-transform duration-300 ${
                   activeTab === t ? 'scale-x-100' : 'scale-x-0'
                 }`} />
               </button>
@@ -57,36 +57,38 @@ const Partners: React.FC = () => {
         {/* Content Area */}
         <div className="animate-fade-in">
           {activeTab === 'inquiry' && (
-            <div className="max-w-3xl mx-auto bg-neutral-900/40 backdrop-blur-sm border border-white/5 p-8 md:p-12 rounded-xl">
-              <h2 className="text-2xl font-bold text-white mb-2">B2B Alliance Inquiry</h2>
-              <p className="text-gray-500 mb-8 text-sm">작성해주신 내용은 담당자가 검토 후 3일 이내에 연락드립니다.</p>
+            <div className="max-w-3xl mx-auto bg-neutral-900/40 backdrop-blur-sm border border-white/5 p-8 md:p-12 rounded-xl shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl"></div>
               
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <h2 className="text-2xl font-bold text-white mb-2 relative z-10">B2B Alliance Inquiry</h2>
+              <p className="text-gray-500 mb-8 text-sm relative z-10">작성해주신 내용은 담당자가 검토 후 3일 이내에 연락드립니다.</p>
+              
+              <form className="space-y-6 relative z-10" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-gray-400 uppercase">Company Name</label>
-                    <input type="text" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="기업명" />
+                    <input type="text" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white/40 focus:bg-white/5 transition-colors" placeholder="기업명" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-gray-400 uppercase">Person In Charge</label>
-                    <input type="text" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="담당자명" />
+                    <input type="text" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white/40 focus:bg-white/5 transition-colors" placeholder="담당자명" />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-gray-400 uppercase">Contact</label>
-                    <input type="text" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="연락처" />
+                    <input type="text" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white/40 focus:bg-white/5 transition-colors" placeholder="연락처" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-gray-400 uppercase">Email</label>
-                    <input type="email" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="이메일 주소" />
+                    <input type="email" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white/40 focus:bg-white/5 transition-colors" placeholder="이메일 주소" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-400 uppercase">Inquiry Type</label>
-                  <select className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white/40 transition-colors appearance-none">
+                  <select className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white/40 focus:bg-white/5 transition-colors appearance-none">
                     <option>제조 위탁 문의 (OEM/ODM)</option>
                     <option>상품 유통 및 입점 제안</option>
                     <option>기업 특판 및 대량 구매</option>
@@ -96,11 +98,11 @@ const Partners: React.FC = () => {
 
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-400 uppercase">Message</label>
-                  <textarea rows={5} className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white/40 transition-colors" placeholder="제안 내용을 상세히 적어주세요." />
+                  <textarea rows={5} className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white/40 focus:bg-white/5 transition-colors" placeholder="제안 내용을 상세히 적어주세요." />
                 </div>
 
                 <div className="pt-4">
-                  <button className="w-full md:w-auto px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center">
+                  <button className="w-full md:w-auto px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.3)]">
                     <span>문의하기</span>
                     <Send className="w-4 h-4 ml-2" />
                   </button>
@@ -114,26 +116,26 @@ const Partners: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
                 <div>
                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Growing Together</h2>
-                   <div className="w-12 h-1 bg-white mb-6"></div>
+                   <div className="w-12 h-1 bg-gradient-to-r from-white to-gray-500 mb-6"></div>
                    <p className="text-gray-400 leading-8 text-lg mb-8">
                      (주)PICKIT KOREA는 파트너사와의 동반 성장을 핵심 가치로 여깁니다.
                      단순한 거래 관계를 넘어, 서로의 강점을 극대화하고 약점을 보완하는
                      전략적 파트너십을 지향합니다.
                    </p>
                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-white/5 border border-white/10 p-6 rounded-lg text-center">
+                      <div className="bg-white/5 border border-white/10 p-6 rounded-lg text-center hover:bg-white/10 transition-colors cursor-pointer">
                         <Building2 className="w-8 h-8 text-white mx-auto mb-3" />
                         <h4 className="text-white font-bold">인프라 공유</h4>
                       </div>
-                      <div className="bg-white/5 border border-white/10 p-6 rounded-lg text-center">
+                      <div className="bg-white/5 border border-white/10 p-6 rounded-lg text-center hover:bg-white/10 transition-colors cursor-pointer">
                         <Users className="w-8 h-8 text-white mx-auto mb-3" />
                         <h4 className="text-white font-bold">네트워크 확장</h4>
                       </div>
                    </div>
                 </div>
-                <div className="bg-neutral-900 border border-white/5 p-10 rounded-2xl relative overflow-hidden group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-purple-900/10 opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
-                  <h3 className="text-xl font-bold text-white mb-8 relative z-10">Partnership Benefits</h3>
+                <div className="bg-neutral-900/50 backdrop-blur-sm border border-white/5 p-10 rounded-2xl relative overflow-hidden group shadow-2xl">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20 opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  <h3 className="text-xl font-bold text-white mb-8 relative z-10 drop-shadow-md">Partnership Benefits</h3>
                   <ul className="space-y-6 relative z-10">
                     {[
                       '제조/생산 라인 우선 배정 및 공정 최적화 지원',
@@ -142,7 +144,7 @@ const Partners: React.FC = () => {
                       '시장 분석 리포트 및 트렌드 데이터 공유'
                     ].map((item, idx) => (
                       <li key={idx} className="flex items-start">
-                        <span className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-white text-xs mr-4 mt-1">{idx+1}</span>
+                        <span className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-white text-xs mr-4 mt-1 border border-white/10 shadow-[0_0_5px_rgba(255,255,255,0.2)]">{idx+1}</span>
                         <span className="text-gray-300">{item}</span>
                       </li>
                     ))}

@@ -11,44 +11,38 @@ const About: React.FC = () => {
   }, [searchParams]);
 
   return (
-    <div className="min-h-screen pt-12 pb-24">
+    <div className="min-h-screen bg-black pt-20 pb-32">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Header Section */}
-        {/* Align text left on mobile to fix visual ragged edges, center on desktop */}
-        <div className="mb-16 md:mb-24 text-left md:text-center animate-fade-in-up">
-           <div className="inline-flex items-center px-4 py-1.5 mb-8 border border-white/10 rounded-full bg-white/5 backdrop-blur-md">
-            <span className="w-1.5 h-1.5 rounded-full bg-white mr-2 animate-pulse"></span>
-            <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-white uppercase">B2B Professional & B2C</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-8xl font-bold text-white leading-[0.9] mb-8 tracking-tighter">
-            BE SPECIAL,<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
-              BE PREMIUM
-            </span>
-          </h1>
-          
-          <p className="text-base md:text-xl text-gray-400 max-w-2xl md:mx-auto leading-relaxed font-light tracking-wide">
-            (주)PICKIT KOREA는 혁신적인 제조 기술과 
-            프리미엄 유통 서비스를 결합하여 새로운 비즈니스 가치를 창출합니다.
-          </p>
+        {/* Header Section: Premium Gold Gradient */}
+        <div className="py-20 md:py-32 border-b border-white/10 mb-20 animate-fade-in-up">
+           <h4 className="text-gray-500 font-bold tracking-[0.3em] uppercase mb-4 text-xs md:text-sm">About Company</h4>
+           <h1 className="text-5xl md:text-8xl font-bold text-white leading-tight tracking-tighter mb-8">
+             BE SPECIAL,<br />
+             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-600 drop-shadow-[0_0_15px_rgba(251,191,36,0.4)]">
+               BE PREMIUM.
+             </span>
+           </h1>
+           <p className="text-xl md:text-2xl text-gray-300 font-light max-w-3xl leading-relaxed">
+             혁신적인 제조 기술과 프리미엄 유통 서비스를 결합하여<br/>
+             비즈니스의 새로운 기준을 제시합니다.
+           </p>
         </div>
 
-        {/* Sub Navigation */}
-        <div className="flex justify-start md:justify-center mb-16 overflow-x-auto no-scrollbar">
-          <div className="flex space-x-8 md:space-x-12 border-b border-white/10 min-w-max px-2">
+        {/* Tab Navigation */}
+        <div className="flex mb-20 overflow-x-auto no-scrollbar">
+          <div className="flex space-x-12 min-w-max">
             {['greeting', 'vision', 'philosophy'].map((t) => (
               <button 
                 key={t}
                 onClick={() => setActiveTab(t)}
-                className={`pb-4 text-xs md:text-sm font-bold tracking-[0.15em] uppercase transition-all relative whitespace-nowrap ${
-                  activeTab === t ? 'text-white' : 'text-gray-600 hover:text-gray-400'
+                className={`text-sm md:text-base font-bold tracking-widest uppercase transition-colors relative group ${
+                  activeTab === t ? 'text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]' : 'text-gray-600 hover:text-gray-400'
                 }`}
               >
-                {t === 'greeting' ? 'CEO Greeting' : t === 'vision' ? 'Management Vision' : 'Philosophy'}
-                <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-white transition-transform duration-300 ${
-                  activeTab === t ? 'scale-x-100' : 'scale-x-0'
+                {t === 'greeting' ? 'CEO Message' : t === 'vision' ? 'Vision' : 'Core Values'}
+                <span className={`absolute -bottom-2 left-0 w-full h-[1px] bg-gradient-to-r from-amber-200 to-amber-600 transition-transform duration-300 origin-left ${
+                  activeTab === t ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-50'
                 }`} />
               </button>
             ))}
@@ -56,128 +50,139 @@ const About: React.FC = () => {
         </div>
 
         {/* Content Area */}
-        <div className="animate-fade-in">
+        <div className="animate-fade-in min-h-[500px]">
           {activeTab === 'greeting' && (
-            <div className="max-w-4xl mx-auto bg-neutral-900/40 backdrop-blur-sm border border-white/5 p-8 md:p-16 rounded-sm">
-              <div className="flex flex-col md:flex-row gap-12 items-start">
-                <div className="flex-1 space-y-6">
-                  <h3 className="text-2xl font-bold text-white mb-8 tracking-tight">CEO Message</h3>
-                  <div className="space-y-8 text-gray-300 leading-8 font-light text-justify text-sm md:text-base">
+            <div className="flex flex-col md:flex-row gap-16 md:gap-24">
+               {/* Left Side: Name Plate Box */}
+               <div className="md:w-1/3">
+                 <div className="w-full h-full min-h-[300px] bg-gradient-to-b from-neutral-900/80 to-black border border-white/10 p-10 flex flex-col justify-between relative overflow-hidden backdrop-blur-sm shadow-2xl">
+                    {/* Top Decorative Line */}
+                    <div className="w-8 h-1 bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div>
+                    
+                    {/* Bottom Info */}
+                    <div className="relative z-10">
+                       <p className="text-gray-500 text-xs font-bold tracking-[0.3em] uppercase mb-4">Representative Director</p>
+                       <div className="space-y-1">
+                         <p className="text-white text-2xl font-light">대표이사</p>
+                         <p className="text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">김 정 우</p>
+                       </div>
+                    </div>
+
+                    {/* Watermark Background */}
+                    <div className="absolute top-0 right-0 p-6 opacity-10">
+                      <span className="text-8xl font-black text-white leading-none">CEO</span>
+                    </div>
+                    
+                    {/* Subtle Glow */}
+                    <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl"></div>
+                 </div>
+               </div>
+               
+               {/* Right Side: Message */}
+               <div className="md:w-2/3">
+                 <h3 className="text-3xl font-serif italic text-white mb-10 leading-snug">
+                   "<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-100 to-amber-400">탁월함</span>은 우연이 아닌,<br/> 끊임없는 헌신과 혁신의 결과입니다."
+                 </h3>
+                 <div className="space-y-6 text-gray-400 leading-8 font-light text-justify md:text-left md:pr-12">
                     <p>
-                      안녕하십니까, <strong className="text-white font-medium">(주)PICKIT KOREA</strong>를 찾아주신 여러분께 깊은 감사의 말씀을 드립니다.
+                      안녕하십니까, (주)PICKIT KOREA를 방문해주신 여러분을 진심으로 환영합니다.
                     </p>
                     <p>
-                      급변하는 글로벌 경제의 흐름 속에서도 변하지 않는 가치는 바로 '본질'에 대한 집요한 탐구입니다. 
-                      저희는 제조의 정밀함과 유통의 유연함, 그리고 개발의 통찰력을 융합하여 
-                      고객의 비즈니스에 가장 최적화된 솔루션을 제공하고자 합니다.
+                      급변하는 글로벌 경제 환경 속에서 기업이 생존하고 성장하기 위해서는 
+                      본질에 집중하는 힘이 필요합니다. 저희 픽잇코리아는 '제조'의 정밀함과 '유통'의 유연함, 
+                      그리고 '개발'의 통찰력을 하나로 융합하여 고객 여러분께 최적의 솔루션을 제공하고 있습니다.
                     </p>
                     <p>
-                      <span className="text-lg md:text-xl text-white font-serif block my-4 border-l-2 border-white/30 pl-6 py-2 italic">
-                        "탁월함은 우연이 아닌,<br/> 끊임없는 헌신과 혁신의 결과입니다."
-                      </span>
+                      단순한 비즈니스 파트너를 넘어, 고객사의 성공이 곧 우리의 성공이라는 믿음으로 
+                      모든 프로젝트에 임하고 있습니다. <strong className="text-white">BE SPECIAL, BE PREMIUM</strong>이라는 
+                      슬로건 아래, 타협하지 않는 품질과 신뢰를 바탕으로 더 높은 곳을 향해 함께 나아가겠습니다.
                     </p>
                     <p>
-                      단순히 제품을 만들고 전달하는 것을 넘어, 고객의 성공을 위한 가장 든든한 초석이 되겠습니다. 
-                      <strong className="text-white"> 'BE SPECIAL, BE PREMIUM'</strong>이라는 약속 아래, 
-                      타협하지 않는 품질과 진정성 있는 파트너십으로 더 높은 곳을 향해 함께 나아가겠습니다.
-                    </p>
-                    <p>
+                      여러분의 비즈니스 여정에 가장 든든한 동반자가 될 것을 약속드립니다.
                       감사합니다.
                     </p>
-                  </div>
-                  <div className="mt-16 pt-10 border-t border-white/10 flex justify-between items-end">
-                     <div>
-                       <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Signature</p>
-                       <p className="text-white text-xl md:text-2xl font-serif italic opacity-80">Kim Jeong Woo</p>
-                     </div>
-                     <div className="text-right">
-                       <p className="text-xs text-gray-400 mb-1">대표이사</p>
-                       <p className="text-white font-bold text-lg md:text-xl tracking-wide">김 정 우</p>
-                     </div>
-                  </div>
-                </div>
-              </div>
+                 </div>
+                 <div className="mt-12">
+                   <p className="text-white font-bold text-lg tracking-wider drop-shadow-md">주식회사 피킷코리아</p>
+                 </div>
+               </div>
             </div>
           )}
 
           {activeTab === 'vision' && (
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {[
-                  { 
-                    en: "Innovation", 
-                    ko: "혁신", 
-                    desc: "기존의 틀을 깨는 창의적 사고와 도전정신",
-                    bg: "bg-gradient-to-br from-neutral-900 to-black"
-                  },
-                  { 
-                    en: "Trust", 
-                    ko: "신뢰", 
-                    desc: "투명한 경영과 원칙 준수를 통한 고객 신뢰",
-                    bg: "bg-gradient-to-br from-neutral-900 to-black" 
-                  },
-                  { 
-                    en: "Growth", 
-                    ko: "성장", 
-                    desc: "파트너와의 동반 성장을 통한 시너지 창출",
-                    bg: "bg-gradient-to-br from-neutral-900 to-black" 
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className={`${item.bg} border border-white/5 p-10 flex flex-col justify-between h-80 group hover:border-white/20 transition-all duration-500`}>
-                    <div>
-                      <h3 className="text-4xl font-light text-white/10 mb-2 group-hover:text-white transition-colors duration-500 tracking-tighter">{item.en}</h3>
-                      <h4 className="text-2xl font-bold text-white mb-4">{item.ko}</h4>
-                      <div className="w-8 h-0.5 bg-white/20 group-hover:w-full transition-all duration-700 mb-6"></div>
-                      <p className="text-gray-400 font-light leading-relaxed text-sm">
-                        {item.desc}
-                      </p>
-                    </div>
-                    <div className="flex justify-end">
-                       <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
-                         <span className="text-lg leading-none mt-[-2px]">→</span>
-                       </div>
-                    </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { 
+                  title: "INNOVATION", 
+                  desc: "기존의 틀을 깨는 창의적 사고와 도전정신으로 새로운 가치를 창출합니다.",
+                  num: "01",
+                  color: "from-blue-500 to-cyan-400"
+                },
+                { 
+                  title: "TRUST", 
+                  desc: "투명한 경영과 원칙 준수를 통해 고객과 사회로부터 신뢰받는 기업이 됩니다.",
+                  num: "02",
+                  color: "from-purple-500 to-pink-400" 
+                },
+                { 
+                  title: "GROWTH", 
+                  desc: "파트너와의 동반 성장을 추구하며 지속 가능한 미래를 만들어갑니다.",
+                  num: "03",
+                  color: "from-amber-500 to-orange-400" 
+                }
+              ].map((item, idx) => (
+                <div key={idx} className="bg-neutral-900/30 border border-white/10 p-12 flex flex-col justify-between h-96 hover:bg-neutral-900/80 hover:border-white/30 transition-all duration-500 group relative overflow-hidden backdrop-blur-sm">
+                  {/* Hover Border Gradient via Pseudo-element trick or simple border color */}
+                  <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${item.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
+                  
+                  <div className="relative z-10">
+                    <span className="text-xs font-bold text-gray-500 border border-gray-700 rounded-full px-3 py-1 mb-6 inline-block">VISION {item.num}</span>
+                    <h3 className="text-3xl font-bold text-white mb-6 tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-400 leading-relaxed font-light">{item.desc}</p>
                   </div>
-                ))}
-              </div>
+                  
+                  {/* Ambient Glow */}
+                  <div className={`absolute -bottom-20 -right-20 w-64 h-64 bg-gradient-to-r ${item.color} opacity-0 group-hover:opacity-10 blur-[80px] transition-opacity duration-700`}></div>
+                </div>
+              ))}
             </div>
           )}
 
           {activeTab === 'philosophy' && (
-            <div className="max-w-5xl mx-auto">
-               <div className="text-center mb-16">
-                 <h2 className="text-3xl font-bold text-white mb-4 tracking-tight">Core Values</h2>
-                 <p className="text-gray-400 font-light">책임있는 경영과 굳건한 신뢰로 더 나은 미래를 만듭니다.</p>
-               </div>
-
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                 {/* Responsibility */}
-                 <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-xl"></div>
-                    <div className="bg-neutral-900/50 border border-white/5 p-10 rounded-xl h-full relative z-10 hover:border-white/20 transition-all">
-                       <div className="text-5xl font-bold text-white/5 mb-6">01</div>
-                       <h3 className="text-2xl font-bold text-white mb-2">책임 경영</h3>
-                       <h4 className="text-[10px] font-bold text-blue-400 uppercase tracking-[0.2em] mb-6">Responsibility</h4>
-                       <p className="text-gray-400 leading-relaxed font-light text-sm">
-                         우리는 제품의 기획부터 생산, 유통, 사후 관리까지 전 과정에 대해 무한한 책임을 집니다. 
-                         품질에 대한 타협 없는 고집과 고객 약속 이행을 최우선으로 하며, 
-                         사회적 책임을 다하는 기업 시민으로서의 역할을 수행합니다.
-                       </p>
+            <div className="border border-white/10 p-12 md:p-20 relative overflow-hidden bg-neutral-900/20 backdrop-blur-sm">
+               <div className="absolute top-0 right-0 w-96 h-96 bg-gray-800/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+               
+               <div className="relative z-10 max-w-3xl">
+                 <h2 className="text-4xl font-bold text-white mb-12 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">Core Philosophy</h2>
+                 
+                 <div className="space-y-16">
+                    <div className="flex flex-col md:flex-row gap-8">
+                       <div className="w-16 h-16 border border-white/20 flex items-center justify-center text-2xl font-bold text-white flex-shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                         01
+                       </div>
+                       <div>
+                         <h3 className="text-2xl font-bold text-white mb-4">책임 경영 (Responsibility)</h3>
+                         <p className="text-gray-400 leading-relaxed font-light">
+                           우리는 제품의 기획부터 생산, 유통, 사후 관리까지 전 과정에 대해 무한한 책임을 집니다. 
+                           품질에 대한 타협 없는 고집과 고객 약속 이행을 최우선으로 합니다.
+                         </p>
+                       </div>
                     </div>
-                 </div>
 
-                 {/* Trust */}
-                 <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-xl"></div>
-                    <div className="bg-neutral-900/50 border border-white/5 p-10 rounded-xl h-full relative z-10 hover:border-white/20 transition-all">
-                       <div className="text-5xl font-bold text-white/5 mb-6">02</div>
-                       <h3 className="text-2xl font-bold text-white mb-2">신뢰 경영</h3>
-                       <h4 className="text-[10px] font-bold text-purple-400 uppercase tracking-[0.2em] mb-6">Trust</h4>
-                       <p className="text-gray-400 leading-relaxed font-light text-sm">
-                         신뢰는 (주)PICKIT KOREA의 가장 소중한 자산입니다. 
-                         투명하고 공정한 거래를 통해 파트너사와 고객에게 믿음을 주고, 
-                         일관성 있는 가치 제공을 통해 지속 가능한 관계를 구축합니다.
-                       </p>
+                    <div className="flex flex-col md:flex-row gap-8">
+                       <div className="w-16 h-16 border border-white/20 flex items-center justify-center text-2xl font-bold text-white flex-shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                         02
+                       </div>
+                       <div>
+                         <h3 className="text-2xl font-bold text-white mb-4">신뢰 경영 (Trust)</h3>
+                         <p className="text-gray-400 leading-relaxed font-light">
+                           신뢰는 (주)PICKIT KOREA의 가장 소중한 자산입니다. 
+                           투명하고 공정한 거래를 통해 파트너사와 고객에게 믿음을 주고, 
+                           일관성 있는 가치 제공을 통해 지속 가능한 관계를 구축합니다.
+                         </p>
+                       </div>
                     </div>
                  </div>
                </div>

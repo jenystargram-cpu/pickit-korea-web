@@ -33,16 +33,17 @@ const Navbar: React.FC = () => {
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
           isScrolled 
-            ? 'bg-black/80 backdrop-blur-md border-white/5 py-4' 
+            ? 'bg-black/80 backdrop-blur-md border-white/10 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.5)]' 
             : 'bg-transparent border-transparent py-6'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 relative flex items-center justify-between md:justify-center">
           
-          {/* Logo - Positioned Absolute Left on Desktop */}
-          <Link to="/" className="z-50 relative md:absolute md:left-6">
-            <div className="text-xl md:text-2xl font-bold tracking-tighter text-white">
-              PICKIT<span className="text-gray-500">KOREA</span>
+          {/* Logo - Gradient Text with Glow */}
+          <Link to="/" className="z-50 relative md:absolute md:left-6 group">
+            <div className="text-xl md:text-2xl font-black tracking-tighter">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-gray-400 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">PICKIT</span>
+              <span className="text-gray-500 group-hover:text-blue-400 transition-colors duration-300">KOREA</span>
             </div>
           </Link>
 
@@ -52,14 +53,15 @@ const Navbar: React.FC = () => {
             {/* About Group */}
             <div className="relative group h-full flex items-center py-2">
               <button 
-                className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors tracking-wide"
+                className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors tracking-wide relative overflow-hidden"
                 onClick={() => handleNavClick('/about')}
               >
                 회사 소개
+                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </button>
               {/* Dropdown */}
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                <div className="bg-black/90 backdrop-blur-xl border border-white/10 py-2 min-w-[140px] shadow-2xl rounded-sm">
+                <div className="bg-black/90 backdrop-blur-xl border border-white/10 py-2 min-w-[140px] shadow-[0_0_30px_rgba(59,130,246,0.15)] rounded-sm">
                   <button 
                     onClick={(e) => { e.stopPropagation(); handleNavClick('/about', 'greeting'); }}
                     className="block w-full text-center px-4 py-3 text-xs text-gray-400 hover:text-white hover:bg-white/5 transition-all"
@@ -85,13 +87,14 @@ const Navbar: React.FC = () => {
             {/* Business Area Group */}
             <div className="relative group h-full flex items-center py-2">
               <button 
-                className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors tracking-wide"
+                className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors tracking-wide relative"
                 onClick={() => handleNavClick('/business')}
               >
                 사업 영역
+                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </button>
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                <div className="bg-black/90 backdrop-blur-xl border border-white/10 py-2 min-w-[140px] shadow-2xl rounded-sm">
+                <div className="bg-black/90 backdrop-blur-xl border border-white/10 py-2 min-w-[140px] shadow-[0_0_30px_rgba(59,130,246,0.15)] rounded-sm">
                   <button 
                     onClick={(e) => { e.stopPropagation(); handleNavClick('/business', 'manufacturing'); }}
                     className="block w-full text-center px-4 py-3 text-xs text-gray-400 hover:text-white hover:bg-white/5 transition-all"
@@ -117,13 +120,14 @@ const Navbar: React.FC = () => {
             {/* Partners (Business) Group */}
             <div className="relative group h-full flex items-center py-2">
               <button 
-                className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors tracking-wide"
+                className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors tracking-wide relative"
                 onClick={() => handleNavClick('/partners')}
               >
                 비즈니스
+                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </button>
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                <div className="bg-black/90 backdrop-blur-xl border border-white/10 py-2 min-w-[140px] shadow-2xl rounded-sm">
+                <div className="bg-black/90 backdrop-blur-xl border border-white/10 py-2 min-w-[140px] shadow-[0_0_30px_rgba(59,130,246,0.15)] rounded-sm">
                   <button 
                     onClick={(e) => { e.stopPropagation(); handleNavClick('/partners', 'inquiry'); }}
                     className="block w-full text-center px-4 py-3 text-xs text-gray-400 hover:text-white hover:bg-white/5 transition-all"
@@ -143,9 +147,10 @@ const Navbar: React.FC = () => {
             {/* Careers */}
             <button 
               onClick={() => handleNavClick('/careers')} 
-              className="text-sm font-medium text-gray-400 hover:text-white transition-colors tracking-wide py-2"
+              className="text-sm font-medium text-gray-400 hover:text-white transition-colors tracking-wide py-2 relative group"
             >
               인재채용
+              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </button>
           </div>
 
